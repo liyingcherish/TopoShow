@@ -1,0 +1,1 @@
+{"rows": [{"flowTableNumber": "0", "priority": "65000", "flowStatus": "1", "match": "{'nw_dst': 'None', 'dl_src': None, 'nw_proto': None, 'tp_dst': None, 'tp_src': None, 'dl_dst': EthAddr('01:23:20:00:00:01'), 'dl_vlan': None, 'nw_src': 'None', 'in_port': None}", "dpNumber": "6c-e8-73-fc-ca-a2"}], "tableType": "3", "tableSize": "1"}

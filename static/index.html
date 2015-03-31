@@ -1,0 +1,443 @@
+﻿<html><head>
+    <base href="INDEX.HTML">
+    <script src="jquery-1.8.2.js" type="text/javascript"></script>     
+
+
+  <title>网络信息展示平台</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0"> 
+	
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
+	<link rel="shortcut icon" href="http://localhost:8080/richfit-win//logo.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
+	<link rel="stylesheet" type="text/css" href="css/rhive.css">
+	<link rel="stylesheet" type="text/css" href="css/rhive-responsive.css"> 
+	<link rel="stylesheet" type="text/css" href="css/uploadify.css"><!--
+	-->
+	
+	<link rel="stylesheet" type="text/css" href="css/topologyShow.css">
+
+<body bgcolor="#999999" youdao="bind" background="img/body_bg.jpg">
+    <div id="header">
+		  <div class="container">
+		     
+		      <div class="row" style="margin-top:10px;">
+		          <div class="span12">
+		              <ul class="breadcrumb" id="breadcrum">
+				            <li>
+					           <a href="#">主页</a>
+					           <span class="divider">/</span>
+				            </li>
+				            <li>
+					            网络信息展示平台
+				           </li>
+				      </ul>
+				   </div>
+		      </div>
+		  </div>    
+   </div>
+
+  <div id="content" style="height: 1000px;">
+  	<div class="container">
+     <div class="row">
+
+      <div class="span3" >
+	  <table >
+	  <tr>
+		  <td>
+			  <div>
+			  <div class="widget">
+				<div class="widget-header">
+				  <div id="header_desc">
+					   <h3>详细信息</h3>
+				  </div>
+				  <div id="header_action" style="margin-top: 8px;">
+					 <!-- <button id="file_refresh" class="btn btn-small">
+						 <i class="icon-refresh"></i>
+						 <b>刷新</b>
+					  </button>-->
+				  </div>
+				</div>
+				<div class="widget-content">
+					<div >
+						<table class="table table-hover table-bordered table-condensed" contenteditable="false" id="detailInfo">
+											
+					</table>
+					</div>
+				</div>
+			  </div>
+			</div>
+		  </td>
+	  </tr>
+	  
+	  <!-- <tr>
+		  <td>
+			  <div>
+			  <div class="widget">
+				<div class="widget-header">
+				  <div id="header_desc">
+				  		<h4><lable id="srcDp"> DpNumber</lable></h4>
+					   <h3>端口划分通道</h3>
+				  </div>	
+				  <div id="header_action" style="margin-top: 8px;">
+					  
+				  </div>
+				</div>
+				<div class="widget-content">
+					<div >
+						<table class="table table-hover table-bordered table-condensed" contenteditable="false" id="srcQueueInfo">
+						<tr>  
+							<td>port</td>
+							<td>queue</td>
+							<td>Rate</td>
+							<td>minRate</td>
+						
+						</tr>
+					</table>
+					</div>
+				</div>
+			  </div>
+			</div>
+		  </td>
+	  </tr>
+	  
+	  	   <tr>
+		  <td>
+			  <div>
+			  <div class="widget">
+				<div class="widget-header">
+				  <div id="header_desc">
+				  		<h4><lable id="dstDp"> DpNumber</lable></h4>
+					   <h3>端口划分通道</h3>
+				  </div>
+				  <div id="header_action" style="margin-top: 8px;">
+					
+				  </div>
+				</div>
+				<div class="widget-content">
+					<div >
+						<table class="table table-hover table-bordered table-condensed" contenteditable="false" id="dstQueueInfo">
+						<tr>  
+							<td>port</td>
+							<td>queue</td>
+							<td>Rate</td>
+							<td>minRate</td>
+							
+						</tr>
+					</table>
+					</div>
+				</div>
+			  </div>
+			</div>
+		  </td>
+	  </tr>
+	  -->
+	  </table>
+        
+      </div><!--span3-->
+
+      <div class="span9">
+        <div class="row">
+         <div id="upload_area" class="span9" style="display: none;">
+             <div style="float:left; margin:12px 22px;">
+               <div class="control-group">
+                    <label class="control-label" for="inputEmail" contenteditable="false">AgentIp</label>
+                    <div class="controls">
+                      <input id="inputEmail" placeholder="AgentIp" type="text">
+                    </div>
+               </div>
+             </div>
+             <div style="float: left;margin:12px 22px;">
+             	 <div class="control-group">
+                    <label class="control-label" for="inputEmail" contenteditable="false">AgentPort</label>
+                    <div class="controls">
+                      <input id="inputEmail" placeholder="AgentPort" type="text">
+                    </div>
+               </div>
+              
+             </div>
+             <div style="float: left;margin:12px 22px;">
+             	  <div class="btn-group" style="margin:15px 1px;">
+	                  <button class="btn" contenteditable="false">刷新模式</button>
+	                  <button data-toggle="dropdown" class="btn dropdown-toggle"><span class="caret"></span></button>
+	                  <ul class="dropdown-menu" contenteditable="false">
+	                    <li><a href="#">手动</a></li>
+	                    <li><a href="#">自动</a></li>
+	                  </ul>
+	                </div>
+              
+             </div>
+             <div id="ctr_btns" style="float: right;margin:25px;">
+	             	
+                 <button class="btn btn-primary" onClick="$('#uploadify').uploadifyUpload()">确 定</button>
+                 <button class="btn" onClick="$('#uploadify').uploadifyClearQueue()">取 消</button>
+             </div>
+         </div>
+       </div>
+       
+       <div>
+        <div class="widget">
+          <div class="widget-header">
+           <div id="header_desc">
+               <h3>网络拓扑图</h3>
+            </div>
+			<div id="time"></div>
+            <div id="header_action">
+        
+                <button id="reset_code" class="btn btn-small">
+                    <i class="icon-refresh"></i>
+                    <b>刷新</b>
+                </button>
+                <!--<button id="upload_file" class="btn btn-small">
+                    <i class="icon-upload"></i>
+                    <b>设置</b>
+                </button>
+                <button id="help_manual" class="btn btn-small">
+                    <i class="icon-question-sign"></i>
+                    <b>帮助</b>
+                </button>-->
+            </div>
+          </div>
+          <div class="widget-content">
+		  
+
+             <div id="TopologyShow" >
+			 <div style="
+				width: 100;
+				font-size:13px;
+				height: 100;
+				border:1px solid #000000;
+				position: absolute;
+				bottom: 0;
+				right: 0;	
+			"> 
+			图示颜色说明：
+			<table style=" font-size:12px">
+			<tr>
+			<td><div  style="width:12; height:12; border:1px solid; background-color:#FF0000"></div></td>
+			<td>：流量过大</td>
+			</tr>
+			
+			<tr>
+			<td><div  style="width:12; height:12; border:1px solid; background-color:#256606"></div></td>
+			<td>：流量适中</td>
+			</tr>
+			
+			<tr>
+			<td><div  style="width:12; height:12; border:1px solid; background-color:#0000FF"></div></td>
+			<td>：流量小</td>
+			</tr>
+			
+			
+			</table>
+			
+			  
+			  
+          </div>
+        </div>   
+      </div>
+
+      <div class="row">
+        <div class="span9">
+          <div class="widget">
+            <div class="widget-header">
+            <div id="header_desc">
+              <h3>表信息</h3>
+            </div>
+            <div id="header_action" style="margin-top: 8px;">
+               <!--<button id="reset_code" class="btn btn-small">
+                    <i class="icon-refresh"></i>
+                    <b>刷新</b>
+                </button>-->
+            </div>
+            </div>
+            <div id="tableInfo" class="widget-content">
+							<div class="tabbable" id="tabs-706609"><!-- Only required for left/right tabs -->
+								<ul class="nav nav-tabs">
+									<li class="active"><a contenteditable="false" data-toggle="tab" href="#panel-DpTable">DpTable</a></li>
+									<li><a contenteditable="false" data-toggle="tab" href="#panel-PortTable">PortTable</a></li>
+									<li><a contenteditable="false" data-toggle="tab" href="#panel-QueueTable">QueueTable</a></li>
+									<li><a contenteditable="false" data-toggle="tab" href="#panel-LinkTable">LinkTable</a></li>
+									<li><a contenteditable="false" data-toggle="tab" href="#panel-FlowEntryTable">FlowEntryTable</a></li>
+								</ul>
+								
+								<div class="tab-content">
+									<div class="tab-pane active" contenteditable="false" id="panel-DpTable">
+										<table class="table table-hover table-bordered table-condensed" contenteditable="false" id="dpTable">
+											<thead>
+												<tr>
+													<th>dpStatus</th>
+													<th>dpNumber</th>
+													<th>dpTimeStamp</th>
+												</tr>
+											</thead>
+											
+										</table>
+									</div>
+								
+									<div class="tab-pane" contenteditable="false" id="panel-PortTable">
+										<table class="table table-hover table-bordered table-condensed" contenteditable="false" id="portTable">
+											<thead>
+												<tr>
+													<th>portStatus</th>
+													<th>portNumber</th>
+													<th>portDp</th>
+													<th>portTimeStamp</th>
+													<th>portMac</th>
+													<th>portRate</th>
+													<th>queueIDs</th>
+												</tr>
+											</thead>
+											
+										</table>
+									</div>
+									
+											<div class="tab-pane" contenteditable="false" id="panel-QueueTable">
+										<table class="table table-hover table-bordered table-condensed" contenteditable="false" id="queueTable">
+											<thead>
+												<tr>
+													<th>queueNumber</th>
+													<th>portNumber</th>
+													<th>minRate</th>
+													<th>txBytes</th>	
+													<th>queueRate</th>
+													<th>queueTimeStamp</th>
+													<th>dpNumber</th>
+													
+												</tr>
+											</thead>
+											
+										</table>
+									</div>
+									
+												<div class="tab-pane" contenteditable="false" id="panel-LinkTable">
+										<table class="table table-hover table-bordered table-condensed" contenteditable="false" id="linkTable">
+											<thead>
+												<tr>
+													<th>LinkStatus</th>
+													<th>srcPort</th>
+													<th>srcDp</th>
+													<th>dstPort</th>
+													<th>dstDp</th>
+													<th>linkTimeStamp</th>	
+												</tr>
+											</thead>
+											
+										</table>
+									</div>
+									
+									<div class="tab-pane" contenteditable="false" id="panel-FlowEntryTable">
+										<table class="table table-hover table-bordered table-condensed" contenteditable="false" id="flowEntryTable">
+											<thead>
+												<tr>
+													<th>dpNumber</th>
+													<th>flowTableNumber</th>
+													<th>match</th>
+													<th>priority</th>
+													<th>flowStatus</th>
+												</tr>
+											</thead>
+											
+										</table>
+									</div>
+								</div>
+							</div>
+            </div><!-- widget-content -->
+          </div><!-- widget  -->
+        </div><!-- span9 -->
+      </div><!--row-->
+    </div><!--span9-->
+
+  </div><!--row-->
+</div><!--container-->
+</div><!--content-->
+
+<div id="footer">
+	<div class="container">				
+		
+		<p></p>
+	</div> <!-- /container -->
+</div> <!-- /footer -->
+
+
+<!-- rightclick menu  -->
+<div id="rMenu">
+	<ul id="readFile"><li>文件查看</li></ul>
+	<ul id="removeFile"><li>文件删除</li></ul>
+	<ul id="downloadFile"><li>文件下载</li></ul>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/swfobject.js"></script>
+<script type="text/javascript" src="js/jquery.uploadify.v2.1.4.js"></script>
+<script type="text/javascript" src="js/d3.js"></script>
+<script type="text/javascript" src="js/topologyShow.js"></script>
+<script type="text/javascript">
+	//initTopologyShow();
+//加载
+$(function () {
+	initTopologyShow();
+});
+//setInterval(initTopologyShow,10000);
+
+/*脚本管理*/
+//提交代码
+$('#submit_code').click(function(){
+	var editor = ace.edit("editor");
+	var rs = editor.getValue();
+	$.ajax({
+		url:'dev/rscript',
+		type:'get',
+		data:{rscript:rs},
+		beforeSend:function(){
+			$('#loading').show();
+		},
+		success:function(data){
+			$('#loading').hide();
+			$('#result').append("<p>"+data+"</p>");
+		}
+	});//ajax
+	go('#footer');
+});//click
+
+//重置代码
+$('#reset_code').click(function(){
+	initTopologyShow();
+});
+
+//上传文件
+$('#upload_file').click(function(){
+	if($('#upload_area').css('display')=="none"){
+	     $('#upload_area').show(600);
+	     $('#content').css('height','1080px');
+	}
+	else{
+		 $('#upload_area').hide(600);
+		 $('#content').css('height','1000px');
+    }
+});
+
+$('#help_manual').click(function(){
+	window.open("dev/readmanual?fullName="+"/manual/RHive.pdf");
+});
+
+//清空结果
+$('#clear_result').click(function(){
+	$('#result').empty();
+});
+
+
+//滚动特效控制
+function go(index){  
+        $("html,body").animate({scrollTop: $(index).offset().top}, 1000);   
+}  
+
+</script>
+</body>
+</html>

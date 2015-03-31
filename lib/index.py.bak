@@ -1,0 +1,66 @@
+import json
+import web
+urls = ('/DpTable','DpTable',
+				'/PortTable','PortTable',
+				'/QueueTable','QueueTable',
+				'/LinkTable','LinkTable',
+				'/FlowEntryTable','FlowEntryTable',
+				)
+
+#store the information of all table in json string
+class TableInfo:
+	def __init__(self):
+		self.path = "D:/develop/TopoShow/lib/json/"
+		f = open(self.path+'dpTable.json')
+		self.dpTable = json.load(f)
+		f.close()	
+		f = open(self.path+'portTable.json')
+		self.portTable = json.load(f)
+		f.close()
+		f = open(self.path+'queueTable.json')
+		self.queueTable = json.load(f)
+		f.close()	
+		f = open(self.path+'linkTable.json')
+		self.linkTable = json.load(f)
+		f.close()
+		f = open(self.path+'flowEntryTable.json')
+		self.flowEntryTable = json.load(f)
+		f.close()
+		
+		
+		
+		
+		
+
+
+class DpTable:
+	def GET(self):
+		table = TableInfo()
+		return json.dumps(table.dpTable)  
+
+        
+class PortTable:
+	def GET(self):
+		table = TableInfo()
+		return json.dumps(table.portTable)  
+
+class QueueTable:
+	def GET(self):
+		table = TableInfo()
+		return json.dumps(table.queueTable)  
+
+class LinkTable:
+	def GET(self):
+		table = TableInfo()
+		return json.dumps(table.linkTable)  
+        
+class FlowEntryTable:
+	def GET(self):
+		table = TableInfo()
+		return json.dumps(table.flowEntryTable)  
+
+
+		
+		
+app = web.application(urls, globals(), autoreload=False)
+application = app.wsgifunc()

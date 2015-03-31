@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>测试悬浮div</title>
+<style type="text/css">
+.divstyle{
+  z-index:1;
+  position:absolute;
+  background-color:#999999;
+}
+#supplierDiv2 {
+	z-index:6;
+	position:relative;
+	text-align:right;
+	padding-left::5px;
+	padding-top:1px;
+	cursor:hand;
+	font-family:"Tahoma";
+}
+#supplierDiv3{
+  z-index:7;
+  position:relative;
+  padding-top:10px;
+  padding-left:5px;
+  widthj:250px;
+  height:150px;
+  background-color:#ffffff;
+  padding:0px;
+  text-align:left;
+  color:red;
+  font-size:15px;
+  overflow-y:auto;
+  line-height:30px;
+  Filter:Alpha(Opacity=100,FinishOpacity=0,Style=1,StartX=0,StartY=0,FinishX=0,FinishY=100)
+}
+
+</style>
+<script type="text/javascript">
+function drawDiv(event,o)
+{
+	document.getElementById("supplierDiv1").style.left=event.clientX-40;
+	document.getElementById("supplierDiv1").style.top=event.clientY;
+	
+	document.getElementById("supplierDiv1").style.display="";	
+}
+
+function closeDiv(){
+    document.getElementById("supplierDiv1").style.dispaly="none";
+}
+
+</script>
+</head>
+
+<body>
+	<table border="1" width="1000px";>
+	<tr>
+		<td><a href="http://www.baidu.com" onmousemove="drawDiv(event,this)">百度一下</a></td>
+		<td><a href="http://www.google.com.hk" onmousemove="drawDiv(event,this)">谷歌一下</a></td>
+		<td><a href="http://www.sina.com" onmousemove="drawDiv(event,this)">我的新浪</a></td>
+	
+	</tr>
+	</table>
+	<div id="supplierDiv1" class="divstyle" style="display:none;">
+	   <div id="supplierDiv2" onclick="closeDiv()">Close</div>
+	   <div id="supplierDiv3"><a href="http://www.baidu.com">又是你百度</a><br><br>
+	   </div>
+	 </div>
+	 <p>
+	   <input id="Text1" type="text" onclick="drawDiv(event,this)"/> 
+	 </p>
+</body>
+</html>

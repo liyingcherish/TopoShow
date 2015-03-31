@@ -1,0 +1,58 @@
+
+.link { stroke: green; stroke-linejoin:bevel;}
+
+.link_error{
+    stroke:red;
+    stroke-linejoin:bevel;
+}
+
+.nodetext {
+
+    font: 12px sans-serif;
+    -webkit-user-select:none;
+    -moze-user-select:none;
+    stroke-linejoin:bevel;
+    
+}
+
+
+#TopologyShow{
+    width:800px;
+    height:600px;
+    border:1px solid gray;
+    border-radius:5px;
+    position:relative;
+    margin:20px;
+}
+
+
+#tableInfo{
+height:180px;
+overflow:auto;
+}
+
+.widget-header
+{
+background: rgba(255, 255, 255, 0.3) !important; /* IE无效，FF有效 */
+background: #fff;
+filter: alpha(opacity=30);
+}
+.widget-content
+{
+background: rgba(255, 255, 255, 0.3) !important; /* IE无效，FF有效 */
+background: #fff;
+filter: alpha(opacity=30);
+}
+button{
+ background: rgba(255, 255, 255, 0.3) !important; /* IE无效，FF有效 */
+            background: #fff;
+            filter: alpha(opacity=30);
+            
+
+}
+.breadcrumb
+{
+background: rgba(255, 255, 255, 0.3) !important; /* IE无效，FF有效 */
+background: #fff;
+filter: alpha(opacity=30);
+}
